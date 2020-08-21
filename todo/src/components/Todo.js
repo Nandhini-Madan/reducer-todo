@@ -33,37 +33,36 @@ const Todo = () => {
         dispatch({
             type: TOGGLE,
             payload: e
-        }
+        })   
 
-        )
-        //    
-
+    }
+    const handleClear=(e)=>{
+        console.log("clearCompleted",e);
+        dispatch({
+            type:CLEAR_COMPLETED
+        })
     }
 
     return (
         <div>
             <h1>Todo List</h1>
-            <form onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit}>
                 <input type="text"
                     name="newTask"
                     value={newTask}
                     onChange={handleChange} >
                 </input>
                 <button>Submit</button>
-                <button></button>
+               
             </form>
-
+            <button onClick={handleClear}> CLEAR_COMPLETED</button>
             {state.map((item) => {
                 return (
-                    <div key={item.id}>
-                        <p>{item.item}</p>
-                        <button onClick={() => {handleToggle(item.id)}}>{item.id}</button>
+                    <div>
+                        <p className={`list ${item.completed ? "completed" : " "}`}>{item.item}</p>
+                        <button onClick={() => { handleToggle(item.id) }}>Task Done</button>
                     </div>
                 )
-
-
-
-
             })}
 
         </div>
