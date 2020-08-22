@@ -15,25 +15,25 @@ export const listReducers = (state, action) => {
         case ADD_LIST:
 
             return [...state, { item: action.payload, completed: false, id: Date.now() }];
-        case CLEAR_COMPLETED:
-            return state;
+        
         case TOGGLE:
             console.log("Toggle", action.payload);
        return     state.map((item) => {
                 if (item.id === action.payload) {
                     console.log("success");
                     return {
-                        ...state, completed: !item.completed
+                        ...item, completed: !item.completed
                     };
                 }
                 else {
                     console.log("state", state);
-                    return state;
+                    return item;
                 }
             })
         case CLEAR_COMPLETED:
-            state.filter((item) => {
-                return !item.completed;
+            console.log("clear");
+        return  state.filter(item => {
+          return    !item.completed;
             })
         //   return state;
 

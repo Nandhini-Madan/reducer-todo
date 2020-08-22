@@ -65,20 +65,22 @@ h1 {
 }
 .list {
   background-color: #e64944;
-  width: 45%;
+  width:45%;
   text-align: left;
-  margin: 4px 0;
-  padding-left: 8px;
+  margin: 10px 0;
+  padding: 8px;
   cursor: pointer;
 }
 .allign{
   display: flex;
   flex-direction: row;
-  padding-right: 10px;
+  align-content: space-around;
 }
 
 .donebtn{
   padding: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 .list.completed {
@@ -117,4 +119,5 @@ input::placeholder {
 
 .clear-btn {
   margin-top: 16px;
+  margin-left: 10px;
 }
